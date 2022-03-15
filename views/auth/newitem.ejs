@@ -2,11 +2,11 @@
     <h2>List an item</h2>
     <br>
 
-    <form method="post" action = "/profile/<%= locals.currentUser.id%>/newpost">
+    <form method="post" action = "/profile/<%= locals.currentUser.id%>/newpost" enctype="multipart/form-data">
 
         <div class="form-group" aria-label="Default select example">
             <h4>Info</h4>
-            <select class="form-select" >
+            <select class="form-select" name = "type">
                 <option value="" disabled selected hidden>Category</option>
                 <optgroup label="Mens">
                     <%clothes.forEach(clothe=>{%>
@@ -28,7 +28,7 @@
                 </optgroup>
               </select>
               <br>
-              <select class="form-select">
+              <select class="form-select" name="brand">
                 <option value="" disabled selected hidden>Brand</option>
                 <%brands.forEach(brand=>{%>
                     <option value="<%=brand%>"><%= brand %></option>
@@ -36,7 +36,7 @@
                 <%});%>
               </select>
               <br>
-              <select class="form-select">
+              <select class="form-select" name="condition">
                 <option data-subtext="Heinz" value="" disabled selected hidden>Condition</option>
                 <option>Brand New</option>
                 <option>Like New</option>
@@ -47,22 +47,35 @@
               
         </div>
         <br>
+        <select class="form-select" name="year">
+            <option data-subtext="Heinz" value="" disabled selected hidden>Age</option>
+            <option>2000s</option>
+            <option>90s</option>
+            <option>80s</option>
+            <option>70s</option>
+            <option>60s</option>
+            <option>50s</option>
+            <option>Antique</option>
+          </select>
+          <br>
+          <select class="form-select" name="color">
+            <option data-subtext="Heinz" value="" disabled selected hidden>Color</option>
+            <%colors.forEach(color=>{%>
+                <option value="<%=color%>"><%= color %></option>
+
+            <%});%>
+          </select>
+        
+        <br>
+        <textarea name="description" rows="4" cols="50" placeholder="Description"></textarea>
         <div>
-            <label>Last Name:</label>
-            <input type="text" name="lastName" class="form-control">
+        Price $
+        <input type="number" placeholder = "0" name="price">
         </div>
         <br>
-        <div>
-            <label>Email Address:</label>
-            <input type="email" name="emailAddress" class="form-control">
-        </div>
         <br>
-        <div>
-            <label>Password:</label>
-            <input type="password" name="password" class="form-control">
-        </div>
-        <br>
-        <button type="submit" class="btn btn-dark ">Create Account</button>
+        <button id ="post_new_item" type="submit" class="btn btn-dark ">Post</button>
+        <input type="hidden" name="sellerId" value="<%=currentUser.id%>">
     
     </form>
 

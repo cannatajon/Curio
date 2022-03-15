@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 
 const productSchema = mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-        minLength: [1,"Title name cannot be empy"],
-        maxLength: [50, "This is too much man chill"]
-    },
     type:{
         type: String,
         required: true
@@ -22,7 +16,7 @@ const productSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    size:{
+    brand:{
         type: String,
         required: true,
 
@@ -31,17 +25,18 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    style: {
-        type: String,
-        required: true,
-    },
+
     color: {
         type: String,
         required: true
     },
     year: {
-        type: Number,
+        type: String,
         required: true,
+    },
+
+    sellerId:{
+        type:String
     }
 
     //userRole: {

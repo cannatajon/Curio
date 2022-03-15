@@ -21,6 +21,9 @@ router.get('/auth/logout', authCntrl.auth_logout_get)
 router.get('/profile/:id', authCntrl.userpage_get)
 
 router.get("/profile/:id/newpost", authCntrl.new_item_get)
+router.post("/profile/:id/newpost", authCntrl.new_item_post)
+
+router.post('/upload/userphoto', authCntrl.upload_user_photo_post)
 
 
 module.exports = router;

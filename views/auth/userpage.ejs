@@ -1,12 +1,35 @@
 <div id="profile_page">
 
-<div id="profile_image"></div>
+<img id="profile_image" src="<%=locals.currentUser.profileImage%>">
 <h3><%= locals.currentUser.firstName%></h3>
 
+  <form action="/upload/userphoto" method="POST" enctype="multipart/form-data">
+    <input type="file" name='image'>
+    <input type="submit">
+  </form>
 
-<button id="post_button"><a href = "/profile/<%=locals.currentUser.id%>/newpost">Post New Item</a></button>
+  <br>
 
+<button id="post_button"><a href = "/profile/<%=locals.currentUser.id%>/newpost">Sell Something</a></button>
+<br>
+<h3>Your Listings</h3>
+<table>
+  <th>Type</th>
+  <th>Description</th>
+  <th>Price</th>
+  <th>Brand</th>
+  <th>Condition</th>
+  <th>Color</th>
+  <th>Year</th>
+  <th>Seller</th>
 
+  <% products.forEach(item=>{ %>
+    <tr>
+      <td>hello</td>
+    </tr>
+  <% }) %>
+  
+</table>
 
 
 </div>

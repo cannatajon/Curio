@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-router.use(express.urlencoded({extended: true}));
+// router.use(express.urlencoded({extended: true}));
 
 const indexCntrl = require('../controllers/index');
 

@@ -1,9 +1,16 @@
 #create_item_page {
-  border: 1px solid black;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: auto;
   margin-top: 40px;
+}
+
+#post_new_item {
+  text-align: center;
+}
+
+#upload_user_photo {
+  width: 400px;
 }

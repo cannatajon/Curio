@@ -11,14 +11,14 @@
 }
 
 #profile_image {
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
-  border: 1px solid red;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  object-fit: cover;
 }
 
 input {

@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+var bb = require('express-busboy'); // add this below the logger
 require('dotenv').config();
 const flash = require('connect-flash')
-const app = express();
-const PORT = process.env.PORT;
+var app = express();
 
+bb.extend(app, { // add this after our app
+  upload: true
+});
+
+const PORT = process.env.PORT;
 
 app.use(express.static('public'));
 const expressLayouts = require("express-ejs-layouts");
@@ -21,7 +26,8 @@ app.use(session({
     cookie: {maxAge: 360000}
   }))
   
-  
+  app.use(express.urlencoded({extended: true}));
+
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(flash());
@@ -32,6 +38,8 @@ app.use(session({
 
     next();
   })
+
+
 
 //import routes
 indexRoute = require('./routes/index')
@@ -52,6 +60,9 @@ mongoose.connect(process.env.mongoDBURL, {
       console.log("mongodb connected successfully!");
   });
 
+ 
+
 app.listen(PORT, ()=>{
     console.log('connected to', PORT);
 })
+
