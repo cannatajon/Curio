@@ -1,0 +1,69 @@
+<div id = 'create_item_page'>
+    <h2>List an item</h2>
+    <br>
+
+    <form method="post" action = "/profile/<%= locals.currentUser.id%>/newpost">
+
+        <div class="form-group" aria-label="Default select example">
+            <h4>Info</h4>
+            <select class="form-select" >
+                <option value="" disabled selected hidden>Category</option>
+                <optgroup label="Mens">
+                    <%clothes.forEach(clothe=>{%>
+                        <option value="<%=clothe%>"><%= clothe %></option>
+    
+                    <%});%>
+                </optgroup>
+                <optgroup label="Womens">
+                    <%clothes.forEach(clothe=>{%>
+                        <option value="<%=clothe%>"><%= clothe %></option>
+    
+                    <%});%>
+                </optgroup>
+                <optgroup label="Jewelley">
+                    <%jewellery.forEach(item=>{%>
+                        <option value="<%=item%>"><%= item %></option>
+    
+                    <%});%>
+                </optgroup>
+              </select>
+              <br>
+              <select class="form-select">
+                <option value="" disabled selected hidden>Brand</option>
+                <%brands.forEach(brand=>{%>
+                    <option value="<%=brand%>"><%= brand %></option>
+
+                <%});%>
+              </select>
+              <br>
+              <select class="form-select">
+                <option data-subtext="Heinz" value="" disabled selected hidden>Condition</option>
+                <option>Brand New</option>
+                <option>Like New</option>
+                <option>Used - Excellent</option>
+                <option>Used - Good</option>
+                <option>Used - Poor</option>
+              </select>
+              
+        </div>
+        <br>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" name="lastName" class="form-control">
+        </div>
+        <br>
+        <div>
+            <label>Email Address:</label>
+            <input type="email" name="emailAddress" class="form-control">
+        </div>
+        <br>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark ">Create Account</button>
+    
+    </form>
+
+</div>

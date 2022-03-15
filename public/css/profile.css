@@ -1,0 +1,36 @@
+#profile_page {
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 98%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+#profile_image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+input {
+  margin: 0 auto;
+}
+
+#post_button {
+  width: 20%;
+  margin: 0 auto;
+}
+
+button a {
+  text-decoration: none;
+  color: black;
+}

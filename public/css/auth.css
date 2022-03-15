@@ -1,0 +1,11 @@
+#create_account_page {
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-top: 40px;
+  padding: 40px;
+}

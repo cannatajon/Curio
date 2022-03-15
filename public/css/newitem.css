@@ -1,0 +1,9 @@
+#create_item_page {
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-top: 40px;
+}
