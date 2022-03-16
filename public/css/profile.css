@@ -1,5 +1,4 @@
 #profile_page {
-  border: 1px solid black;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -33,4 +32,34 @@ input {
 button a {
   text-decoration: none;
   color: black;
+}
+
+#card_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+#card_container div {
+  margin: 8px;
+}
+#card_container a {
+  text-decoration: none;
+  color: black;
+}
+
+.card-body {
+  color: black;
+  text-decoration: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+#userphoto {
+  display: flex;
+  flex-direction: column;
 }

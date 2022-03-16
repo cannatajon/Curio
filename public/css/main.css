@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 *:focus {
   outline: none;
 }
@@ -59,4 +59,20 @@ body {
   font-family: "Inconsolata", monospace;
 
   background-color: rgb(247, 247, 247);
+}
+
+footer {
+  border-top: 1px solid black;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  margin-top: 50px;
+}
+.socials {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
 }

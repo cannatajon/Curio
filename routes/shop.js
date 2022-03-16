@@ -9,4 +9,5 @@ const shopCntrl = require('../controllers/shop');
 router.get('/shop/:item', shopCntrl.shop_page_get)
 
 
+
 module.exports = router;

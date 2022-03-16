@@ -1,0 +1,92 @@
+<div id = 'create_item_page'>
+<h1>Edit</h1>
+
+<form method="post" action = "/product/<%=product.id%>/edit?_method=PUT" enctype="multipart/form-data">
+
+    <div class="form-group" aria-label="Default select example">
+        <h4>Info</h4>
+        
+            <label for="customFile">Upload Image</label>
+            <input type="file" class="form-control" id="customFile" name="image" />
+          
+          
+          <br>
+        <input type = "text" name="title" class="form-control" value="<%= product.title%>">
+        <br>
+        <select class="form-select" name = "type"  >
+            
+            <option disabled selected hidden>Category</option>
+            <optgroup label="Mens">
+                <%clothes.forEach(clothe=>{%>
+                    <option value="<%=clothe%>"><%= clothe %></option>
+
+                <%});%>
+            </optgroup>
+            <optgroup label="Womens">
+                <%clothes.forEach(clothe=>{%>
+                    <option value="<%=clothe%>"><%= clothe %></option>
+
+                <%});%>
+            </optgroup>
+            <optgroup label="Jewelley">
+                <%jewellery.forEach(item=>{%>
+                    <option value="<%=item%>"><%= item %></option>
+
+                <%});%>
+            </optgroup>
+          </select>
+          <br>
+          <select class="form-select" name="brand">
+            <option value="" disabled selected hidden>Brand</option>
+            <%brands.forEach(brand=>{%>
+                <option value="<%=brand%>"><%= brand %></option>
+
+            <%});%>
+          </select>
+          <br>
+          <select class="form-select" name="condition">
+            <option data-subtext="Heinz" value="" disabled selected hidden>Condition</option>
+            <option>Brand New</option>
+            <option>Like New</option>
+            <option>Used - Excellent</option>
+            <option>Used - Good</option>
+            <option>Used - Poor</option>
+          </select>
+          
+    </div>
+    <br>
+    <select class="form-select" name="year">
+        <option data-subtext="Heinz" value="" disabled selected hidden>Age</option>
+        <option>2000s</option>
+        <option>90s</option>
+        <option>80s</option>
+        <option>70s</option>
+        <option>60s</option>
+        <option>50s</option>
+        <option>Antique</option>
+      </select>
+      <br>
+      <select class="form-select" name="color">
+        <option data-subtext="Heinz" value="" disabled selected hidden>Color</option>
+        <%colors.forEach(color=>{%>
+            <option value="<%=color%>"><%= color %></option>
+
+        <%});%>
+      </select>
+    
+    <br>
+    <textarea name="description" rows="4" cols="50" placeholder="Description"></textarea>
+    <div>
+    Price $
+    <input type="number" placeholder = "0" name="price">
+    </div>
+    <br>
+    <br>
+    <button id ="post_new_item" type="submit" class="btn btn-dark ">Post</button>
+    <input type="hidden" name="sellerId" value="<%=currentUser.id%>">
+    <input type="hidden" name="seller" value="<%=currentUser.firstName + currentUser.lastName%>">
+
+</form>
+
+</div>
+</div>

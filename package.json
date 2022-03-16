@@ -20,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
+    "bootstrap-icons": "^1.8.1",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
@@ -29,6 +30,7 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "gridfs-stream": "^1.1.1",
+    "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "mongoose": "^6.2.6",
     "morgan": "^1.10.0",

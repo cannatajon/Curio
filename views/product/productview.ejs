@@ -1,0 +1,19 @@
+<h1 id="productTitle"><%=product.title%></h1>
+
+<div id = productBody>
+<img src = "<%= product.productImage%>" width = '500px'></img>
+<div id="productinfo">
+    <ul>
+        <li>Type: <%= product.type%></li>
+        <li>Brand: <%= product.brand%></li>
+        <li>Condition: <%= product.condition%></li>
+        <li>Age: <%= product.year%></li>
+        <li>Color: <%= product.color%></li>
+        <li>Price: $<%= product.price%></li>
+    </ul>
+    Seller: <a href="/users/<%= product.sellerId%>"><%=product.seller%></a>
+    <div id="productdescription">
+        <p><%= product.description%></p>
+    </div>
+</div>
+</div>

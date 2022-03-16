@@ -3,9 +3,12 @@
 <img id="profile_image" src="<%=locals.currentUser.profileImage%>">
 <h3><%= locals.currentUser.firstName%></h3>
 
-  <form action="/upload/userphoto" method="POST" enctype="multipart/form-data">
-    <input type="file" name='image'>
-    <input type="submit">
+  <form id='userphoto' action="/upload/userphoto" method="POST" enctype="multipart/form-data">
+    <label>Change user photo</label>
+    <div>
+      <input type="file" name='image'>
+      <input type="submit">
+    </div>
   </form>
 
   <br>
@@ -13,23 +16,26 @@
 <button id="post_button"><a href = "/profile/<%=locals.currentUser.id%>/newpost">Sell Something</a></button>
 <br>
 <h3>Your Listings</h3>
-<table>
-  <th>Type</th>
-  <th>Description</th>
-  <th>Price</th>
-  <th>Brand</th>
-  <th>Condition</th>
-  <th>Color</th>
-  <th>Year</th>
-  <th>Seller</th>
 
-  <% products.forEach(item=>{ %>
-    <tr>
-      <td>hello</td>
-    </tr>
+<div id="card_container">
+<% product.forEach(item=>{ %>
+  <a href = "/products/<%= item.id%>">
+    <div class="card" style="width: 250px" >
+      <img class="card-img-top" src="<%=item.productImage%>" alt="Card image cap" width="250px" height="250px">
+      <div class="card-body">
+        <p><b><%=item.title%></b></p>
+        <p><%= item.description%></p>
+        <p>$<%=item.price%></p>
+        <a href="/products/<%=item._id%>/edit">Edit</a>
+        <a href="/product/<%=item._id%>/delete">Delete</a>
+
+        <!-- a -> <form> href -> action method=post  -->
+      </div>
+    </div>
+  </a>
   <% }) %>
+</div>
   
-</table>
 
 
 </div>

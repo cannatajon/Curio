@@ -4,6 +4,7 @@ var bb = require('express-busboy'); // add this below the logger
 require('dotenv').config();
 const flash = require('connect-flash')
 var app = express();
+var methodOverride = require('method-override');
 
 bb.extend(app, { // add this after our app
   upload: true
@@ -14,6 +15,7 @@ const PORT = process.env.PORT;
 app.use(express.static('public'));
 const expressLayouts = require("express-ejs-layouts");
 app.use(expressLayouts);
+app.use(methodOverride('_method'));
 
 
 let session = require('express-session');
@@ -45,11 +47,12 @@ app.use(session({
 indexRoute = require('./routes/index')
 shopRoute = require('./routes/shop')
 authRoute = require('./routes/auth')
+productRoute = require('./routes/productview')
 //mount routes
 app.use('/', indexRoute);
 app.use('/', shopRoute)
 app.use('/', authRoute)
-
+app.use('/', productRoute)
 app.set("view engine", "ejs")
 
 mongoose.connect(process.env.mongoDBURL, {

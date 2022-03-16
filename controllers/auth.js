@@ -81,13 +81,15 @@ exports.auth_logout_get = (req,res)=>{
 }
 
 exports.userpage_get = (req,res)=>{
-    let products = Product.find()
-    const id = req.params.id
+    
     if(req.user){
-        res.render('auth/userpage' , {id, products})
+        Product.find({sellerId:req.user._id})
+        .then(product=>{
+            res.render('auth/userpage', {product})
+        })
     }
     else{
-        res.redirect('/auth/signin')
+        res.redirect('back')
     }
 }
 
@@ -96,14 +98,47 @@ exports.new_item_get = (req,res)=>{
 
 }
 
-exports.new_item_post = (req,res)=>{
+exports.new_item_post =  (req,res)=>{
     let product = new Product(req.body);
     product.save()
-    .then(()=>{
-        res.redirect(`/profile/${req.params.id}`)
+    .then(async()=>{
+        let image = base64_encode(req.files.image.file);
+        
+        const options = {
+          method: 'POST',
+          url: 'https://api.imgur.com/3/image',
+          headers: {
+            Authorization: `Client-ID ${process.env.CLIENT_ID}`,
+          },
+          formData: {
+            image: image,
+            type: 'base64'
+          },
+        };
+      
+         request(options, async function(err, response) {
+          if (err) return console.log(err);
+          let body = JSON.parse(response.body)
+          // Mongoose query here to save to db
+          // body.data.link points to imgur url
+          product.productImage = body.data.link
+          console.log(product.productImage)
+            product.save()
+            .then(()=>{
+                res.redirect(`/profile/${req.user.id}`)
+                User.findById(req.params.id, (err, user)=>{
+                    user.products.push(product)
+                    user.save();
+                })
+            })
+        
+
+        
+    })
     })
     .catch(()=>{
-        console.log('something fucked up')
+        req.flash("error", "you suck");
+        res.redirect('back');
     })
 }
 
@@ -135,4 +170,37 @@ exports.upload_user_photo_post = async (req,res)=>{
         })
         
       
+}
+
+exports.product_delete_get = async(req,res)=>{
+
+    let user = User.findById(req.user.id);
+    user.updateOne( { _id: res.locals.currentUser.id }, { $pull: { products: req.params.id } } )
+
+
+    Product.findByIdAndDelete(req.params.id)
+    .then(product=>{
+        res.redirect(`/profile/${res.locals.currentUser.id}`)
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+}
+
+exports.edit_product_get = (req,res)=>{
+    Product.findById(req.params.id , (err, product)=>{
+        res.render('product/edit', {product, brands , clothes, jewellery, colors})
+    })
+    
+}
+
+exports.edit_product_post = (req,res)=>{
+    console.log(req.body , req.params.id)
+    Product.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+        res.redirect(`/profile/${res.locals.currentUser.id}`);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }

@@ -1,0 +1,31 @@
+<div id="profile_page">
+
+    <img id="profile_image" src="<%=user.profileImage%>">
+    <h3><%= user.firstName%></h3>
+    
+      <br>
+    
+    <br>
+    <h3><%=user.firstName%>'s Listings</h3>
+    
+    <div id="card_container">
+    <% user.products.forEach(item=>{ %>
+      <a href = "/products/<%= item._id%>">
+        <div class="card" style="width: 250px" >
+          <img class="card-img-top" src="<%=item.productImage%>" alt="Card image cap" width="250px" height="250px">
+          <div class="card-body">
+            <p><b><%=item.title%></b></p>
+            
+            <p><%= item.description%></p>
+            <p>$<%=item.price%></p>
+            
+          </div>
+        </div>
+      </a>
+      <% }) %>
+    </div>
+      
+    
+    
+    </div>
+    

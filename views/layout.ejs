@@ -9,6 +9,7 @@
     <link rel = "stylesheet" href = "/css/auth.css">
     <link rel = "stylesheet" href = "/css/profile.css">
     <link rel = "stylesheet" href = "/css/newitem.css">
+    <link rel = "stylesheet" href = "/css/productpage.css">
     <title>CURIO</title>
 </head>
 <body>
@@ -32,34 +33,44 @@
             <%}%>
             
         </div>
-        <% if(alerts.validationErrors) { %> <% alerts.validationErrors.forEach(function(msg) { %>
-            <div class="alert alert-danger">
-              Your  <%= msg.param %> has 
-              <%= msg.msg %>
-            </div>
-            <% }) %> <% } %>
-      
-          <% if(alerts.success) { %> <% alerts.success.forEach(function(msg) { %>
-          <div class="alert alert-success"><%= msg %></div>
-          <% }) %> <% } %>
-          
-          <% if(alerts.error) { %> <%
-          alerts.error.forEach(function(msg) { %>
-          <div class="alert alert-danger"><%= msg %></div>
-          <% }) %> <% } %>
+        
             <nav>
-                <button><a href="/shop/men">Menswear</a></button>
-                <button><a href="/shop/women">Womenswear</a></button>
+                <button><a href="/">Shop All</a></button>
                 <button><a href="/shop/jewellery">Jewellery</a></button>
                 <button><a href="/shop/brand">Brands</a></button>
                 <button><a href="/shop/decade">Decade</a></button>
             </nav>
+            <% if(alerts.validationErrors) { %> <% alerts.validationErrors.forEach(function(msg) { %>
+                <div class="alert alert-danger">
+                  Your  <%= msg.param %> has 
+                  <%= msg.msg %>
+                </div>
+                <% }) %> <% } %>
+          
+              <% if(alerts.success) { %> <% alerts.success.forEach(function(msg) { %>
+              <div class="alert alert-success"><%= msg %></div>
+              <% }) %> <% } %>
+              
+              <% if(alerts.error) { %> <%
+              alerts.error.forEach(function(msg) { %>
+              <div class="alert alert-danger"><%= msg %></div>
+              <% }) %> <% } %>
         
     </header>
 
     <div id = "bodywrapper">    
         <%-body%>
     </div>
-
+    <footer>
+        <h5>Made by Jon</h5>
+        <div class="socials">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-linkedin"></i>
+        <i class="bi bi-github"></i>
+        <i class="bi bi-envelope"></i>
+        </div>
+    </footer>
 </body>
 </html>

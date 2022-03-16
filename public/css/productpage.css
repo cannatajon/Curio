@@ -1,0 +1,18 @@
+#productBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#productinfo {
+  margin: 15px;
+}
+
+#productdescription {
+  border-top: 1px solid grey;
+}
+
+#productTitle {
+  text-align: center;
+  margin: 15px;
+}

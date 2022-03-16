@@ -6,7 +6,16 @@
 
         <div class="form-group" aria-label="Default select example">
             <h4>Info</h4>
+            
+                <label for="customFile">Upload Image</label>
+                <input type="file" class="form-control" id="customFile" name="image" />
+              
+              
+              <br>
+            <input type = "text" name="title" class="form-control" placeholder="Title">
+            <br>
             <select class="form-select" name = "type">
+                
                 <option value="" disabled selected hidden>Category</option>
                 <optgroup label="Mens">
                     <%clothes.forEach(clothe=>{%>
@@ -76,6 +85,7 @@
         <br>
         <button id ="post_new_item" type="submit" class="btn btn-dark ">Post</button>
         <input type="hidden" name="sellerId" value="<%=currentUser.id%>">
+        <input type="hidden" name="seller" value="<%=currentUser.firstName + currentUser.lastName%>">
     
     </form>
 
