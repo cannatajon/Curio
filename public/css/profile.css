@@ -18,6 +18,7 @@
   align-items: center;
   margin: 0 auto;
   object-fit: cover;
+  box-shadow: 0px 0px 15px grey;
 }
 
 input {
@@ -38,6 +39,8 @@ button a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px grey;
 }
 
 #card_container div {
