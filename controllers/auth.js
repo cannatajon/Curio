@@ -126,10 +126,7 @@ exports.new_item_post =  (req,res)=>{
             product.save()
             .then(()=>{
                 res.redirect(`/profile/${req.user.id}`)
-                User.findById(req.params.id, (err, user)=>{
-                    user.products.push(product)
-                    user.save();
-                })
+                
             })
         
 
@@ -174,9 +171,15 @@ exports.upload_user_photo_post = async (req,res)=>{
 
 exports.product_delete_get = async(req,res)=>{
 
-    let user = User.findById(req.user.id);
+    await Product.findByIdAndDelete(req.params.id)
+    let user = await User.findById(req.user.id);
     console.log(req.params.id)
-    user.updateOne( { _id: req.user.id }, { $pull: { products: req.params.id } } )
+
+    user.products=user.products.filter(product=>{
+        String(product._id) !== req.params.id
+    })
+    user.save()
+    res.redirect(`/profile/${req.user.id}`)
 
 }
 

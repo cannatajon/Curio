@@ -10,7 +10,7 @@ bb.extend(app, { // add this after our app
   upload: true
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||'3000';
 
 app.use(express.static('public'));
 const expressLayouts = require("express-ejs-layouts");
@@ -60,7 +60,8 @@ mongoose.connect(process.env.mongoDBURL, {
     useUnifiedTopology: true,
   },
   () => {
-      console.log("mongodb connected successfully!");
+    
+      console.log(`mongodb connected successfully!`);
   });
 
  

@@ -28,7 +28,8 @@ router.post('/upload/userphoto', authCntrl.upload_user_photo_post)
 router.get('/products/:id/edit', authCntrl.edit_product_get)
 router.put('/product/:id/edit', authCntrl.edit_product_post)
 
-router.get('/product/:id/delete' , authCntrl.product_delete_get)
+router.delete('/product/:id/delete' , authCntrl.product_delete_get)
+
 
 
 module.exports = router;

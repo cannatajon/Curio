@@ -25,7 +25,7 @@
       <div class="card-body">
         <p><b><%=item.title%></b></p>
         <a href="/products/<%=item._id%>/edit">Edit</a>
-        <a href="/product/<%=item._id%>/delete">Delete</a>
+        <form action="/product/<%=item._id%>/delete?_method=DELETE" method="POST"><button>Delete</button></form>
 
         <!-- a -> <form> href -> action method=post  -->
       </div>
