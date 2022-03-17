@@ -134,7 +134,7 @@ exports.new_item_post =  (req,res)=>{
     })
     })
     .catch(()=>{
-        req.flash("error", "you suck");
+        req.flash("error", "Please enter all fields");
         res.redirect('back');
     })
 }
