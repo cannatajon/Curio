@@ -37,8 +37,7 @@ button a {
 #card_container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  align-items: baseline;
+  justify-content: center;
 }
 
 #card_container div {
@@ -46,13 +45,17 @@ button a {
 }
 #card_container a {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+.card {
+  background-color: rgb(29, 29, 29);
 }
 
 .card-body {
-  color: black;
   text-decoration: none;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  padding: 0;
 }
 
 .card-img-top {

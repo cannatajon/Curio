@@ -3,14 +3,10 @@
 <div id="card_container">
     <% product.forEach(item=>{ %>
       <a href = "/products/<%= item.id%>">
-        <div class="card" style="width: 250px" >
+        <div class="card" >
           <img class="card-img-top" src="<%=item.productImage%>" alt="Card image cap" width="250px" height="250px">
           <div class="card-body">
             <p><b><%=item.title%></b></p>
-            <p><%= item.description%></p>
-            <p>Seller: <a href="/users/<%= item.sellerId%>"><%=item.seller%></a>
-                <div id="productdescription"></p>
-                    <p>$<%=item.price%></p>
           </div>
         </div>
       </a>

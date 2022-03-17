@@ -175,16 +175,9 @@ exports.upload_user_photo_post = async (req,res)=>{
 exports.product_delete_get = async(req,res)=>{
 
     let user = User.findById(req.user.id);
-    user.updateOne( { _id: res.locals.currentUser.id }, { $pull: { products: req.params.id } } )
+    console.log(req.params.id)
+    user.updateOne( { _id: req.user.id }, { $pull: { products: req.params.id } } )
 
-
-    Product.findByIdAndDelete(req.params.id)
-    .then(product=>{
-        res.redirect(`/profile/${res.locals.currentUser.id}`)
-    })
-    .catch(err=>{
-        console.log(err);
-    })
 }
 
 exports.edit_product_get = (req,res)=>{
