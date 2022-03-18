@@ -172,13 +172,6 @@ exports.upload_user_photo_post = async (req,res)=>{
 exports.product_delete_get = async(req,res)=>{
 
     await Product.findByIdAndDelete(req.params.id)
-    let user = await User.findById(req.user.id);
-    console.log(req.params.id)
-
-    user.products=user.products.filter(product=>{
-        String(product._id) !== req.params.id
-    })
-    user.save()
     res.redirect(`/profile/${req.user.id}`)
 
 }
