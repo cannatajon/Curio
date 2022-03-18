@@ -17,7 +17,7 @@
 <li>Express</li>
 <li>JavaScript</li>
 <li>MongoDB</li>
-<li>HTML</li>
+<li>EJS</li>
 <li>CSS</li>
 </ul>
 
